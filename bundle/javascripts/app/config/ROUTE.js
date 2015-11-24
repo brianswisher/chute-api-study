@@ -1,5 +1,5 @@
 module.exports = {
-  FEED: "/feed",
-  PROFILE: "/profile",
+  CHUTES: "/api/chutes",
+  KEYS: "/api/keys",
   ROOT: "/"
 };

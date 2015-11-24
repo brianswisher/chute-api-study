@@ -13,7 +13,7 @@ let ENV = process.env.ENV;
 let PROXY = process.env.PROXY || true;
 
 let csrfProtection = csrf({ cookie: true });
-let db = diskdb.connect("server/db", ["locations"]);
+let db = diskdb.connect("server/db", ["keys"]);
 let router = express.Router();
 let path;
 let Screen;
@@ -43,10 +43,14 @@ let config = (req) => {
 };
 
 if (PROXY) {
-  require("./proxy")(router, csrfProtection);
+  require("./proxy")(router, db);
 }
 
 let route = require("../../bundle/javascripts/app/routes");
+
+router.get("/api/chute", function(req, res) {
+  res.json(db.locations.find());
+});
 
 router.get("/api/locations", function(req, res) {
   res.json(db.locations.find());

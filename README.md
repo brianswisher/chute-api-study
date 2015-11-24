@@ -1,9 +1,9 @@
-# Universal Routes
+# Chute API Study
 
 You will need `node` w/ `npm`.
 
 ```
-# is node already isnstalled (~v0.10.33)
+# is node already installed (~v0.10.33)
 node -v
 
 # install with

@@ -1,15 +1,15 @@
 import request from "superagent";
 
-var LocationsFetcher = {
+var ChutesFetcher = {
   fetch: function () {
     return new Promise(function (resolve) {
       request
-        .get("/api/locations")
+        .get("/api/chutes")
         .end(function(error, response) {
-          resolve(response.body);
+          resolve(response.body.data.end_points.albums);
         });
     });
   }
 };
 
-module.exports = LocationsFetcher;
+module.exports = ChutesFetcher;

@@ -27,34 +27,6 @@ export default (path, props = {}) => {
       }
       break;
 
-    case ROUTE.FEED:
-      if (isServer) {
-        routeFactory.module = "FeedScreen";
-
-        return routeFactory;
-      } else {
-        return require.ensure([], function() {
-          Route = require("./FeedScreen");
-
-          React.render(<Route {...props} />, viewport);
-        }, "feed");
-      }
-      break;
-
-    case ROUTE.PROFILE:
-      if (isServer) {
-        routeFactory.module = "ProfileScreen";
-
-        return routeFactory;
-      } else {
-        return require.ensure([], function() {
-          Route = require("./ProfileScreen");
-
-          React.render(<Route {...props} />, viewport);
-        }, "profile");
-      }
-      break;
-
     default:
       if (isServer) {
         routeFactory.module = "NotFoundScreen";

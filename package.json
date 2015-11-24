@@ -1,14 +1,14 @@
 {
-  "name": "universal-routes",
+  "name": "chute-api-study",
   "version": "1.0.0",
-  "description": "Universal JS routing w/ webpack code-split (chunking)",
+  "description": "A study of the Chute API",
   "main": "index.js",
   "engines": {
     "node": "0.12.2",
     "npm": "2.7.5"
   },
   "scripts": {
-    "browser": "open 'http://localhost:3101'",
+    "browser": "open 'http://localhost:3001'",
     "bundle": "cd bundle && node ../node_modules/webpack/bin/webpack --config app.webpack.config.js",
     "bundle:dev": "npm run clean && cd bundle && ENV=development node ../node_modules/webpack/bin/webpack --config app.webpack.config.js && cd ../",
     "clean": "cd public && rm -f *.bundle.js && rm -f *.js.map && cd ../",
@@ -23,14 +23,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brianswisher/deployable.git"
+    "url": "https://github.com/brianswisher/chute-api-study.git"
   },
   "author": "Brian Swisher",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brianswisher/deployable/issues"
+    "url": "https://github.com/brianswisher/chute-api-study/issues"
   },
-  "homepage": "https://github.com/brianswisher/universal-routes",
+  "homepage": "https://github.com/brianswisher/chute-api-study",
   "dependencies": {
     "alt": "^0.17.1",
     "assets-webpack-plugin": "^2.2.0",

@@ -5,3 +5,4 @@ npm-debug.log
 public/*.bundle.js
 public/*.map
 server/routes/*.json
+server/db/*.json

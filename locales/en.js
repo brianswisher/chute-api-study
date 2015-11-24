@@ -1,3 +1,3 @@
 {
-  "page_title": "WebPack Chunking Example"
+  "page_title": "Chute API Study"
 }

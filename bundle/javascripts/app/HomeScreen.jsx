@@ -1,5 +1,5 @@
 import HomeScreenRuntime from "./HomeScreenRuntime";
-import Location from "./component/Location";
+import Chute from "./component/Chute";
 import Radium from "radium";
 import React from "react";
 import { baseline } from "./config/index";
@@ -21,12 +21,13 @@ class HomeScreen extends HomeScreenRuntime {
   }
 
   render() {
-    var { runtime } = this.state;
+    const { i18n } = this.props;
+    let { runtime } = this.state;
 
     return (
       <div style={styles.container}>
-        <h1>Home</h1>
-        <Location />
+        <h1>{i18n.page_title}</h1>
+        <Chute />
       </div>
     )
   }

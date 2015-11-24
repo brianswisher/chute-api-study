@@ -1,6 +1,6 @@
 import Radium from "radium";
 import React from "react";
-import LocationRuntime from "./LocationRuntime";
+import ChuteRuntime from "./ChuteRuntime";
 
 let styles = {
   list: {
@@ -13,7 +13,7 @@ let styles = {
 };
 
 @Radium
-class Location extends LocationRuntime {
+class Chute extends ChuteRuntime {
   render() {
     if (this.state.errorMessage) {
       return (
@@ -21,7 +21,7 @@ class Location extends LocationRuntime {
       );
     }
 
-    if (!this.state.locations.length) {
+    if (!this.state.chutes.length) {
       return (
         <div>loading...</div>
       )
@@ -29,9 +29,11 @@ class Location extends LocationRuntime {
 
     return (
       <ul style={styles.list}>
-        {this.state.locations.map((location, i) => {
+        {this.state.chutes.map((chute, i) => {
           return (
-            <li style={styles.item} key={i} onClick={this.onClick} data-path={location.path}>{location.name}</li>
+            <li style={styles.item} key={i}>
+              <a href={chute.href}>{chute.title} ({chute.method})</a>
+            </li>
           );
         })}
       </ul>
@@ -39,4 +41,4 @@ class Location extends LocationRuntime {
   }
 }
 
-export default Location;
+export default Chute;
