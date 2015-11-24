@@ -11,6 +11,21 @@ brew install node
 
 ```
 
+This app requires an API key (album id)
+
+```
+touch server/db/keys.json
+```
+
+The contents should look like:
+
+```
+[
+  { "name": "chute", "value": "ALBUM_ID" }
+]
+
+```
+
 When developing, do this:
 
 ```
