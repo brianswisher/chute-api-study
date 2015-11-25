@@ -1,11 +1,12 @@
+import AlbumRuntime from "./AlbumRuntime";
+import Enumerable from "linq";
 import React from "react";
-import ChuteEndpoints from "./ChuteEndpoints";
-import ChuteRuntime from "./ChuteRuntime";
-import KeyFetcher from "../util/KeyFetcher.js";
 
+const ALBUM_DETAILS = "Album Details";
+const CHUTE = "chute";
 let {ROUTE} = require("../config/index").CONSTANTS;
 
-class Chute extends ChuteRuntime {
+class Album extends AlbumRuntime {
   render() {
     const { i18n } = this.props;
     let content = null;
@@ -14,14 +15,15 @@ class Chute extends ChuteRuntime {
       content = <div>{i18n.something_is_wrong}</div>;
     }
 
-    if (!this.state.chutes.length) {
+    if (!this.state.albums.length) {
       content = <div>{i18n.loading}</div>;
     } else {
-      APP.navigate(ROUTE.ALBUM_SCREEN, true);
+      APP.navigate(ROUTE.ASSETS_SCREEN, true);      
     }
 
     return content;
+
   }
 }
 
-export default Chute;
+export default Album;

@@ -14,6 +14,10 @@ APP.navigate = (path, quietly, replace) => {
   }
 }
 
+APP.redirect = (path) => {
+  history.replaceState({ path: path }, null, path);
+}
+
 window.onload = () => {
   APP.navigate(window.location.pathname, true, true);
 }

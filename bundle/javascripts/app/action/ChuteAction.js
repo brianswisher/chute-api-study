@@ -1,11 +1,11 @@
 var alt = require("../alt.js");
-var ChutesFetcher = require("../util/ChutesFetcher.js");
+var ChuteFetcher = require("../util/ChuteFetcher.js");
 
 class ChuteAction {
   fetchChutes() {
     this.dispatch();
 
-    ChutesFetcher.fetch()
+    ChuteFetcher.fetch()
       .then((chutes) => {
         this.actions.updateChutes(chutes);
       })

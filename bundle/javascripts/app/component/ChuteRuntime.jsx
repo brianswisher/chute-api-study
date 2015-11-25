@@ -6,7 +6,9 @@ class ChuteRuntime extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = ChuteStore.getState();
+    this.state = {
+      chutes: ChuteStore.getState().chutes
+    };
 
     this.onChange = onChange.bind(this);
   }

@@ -27,6 +27,34 @@ export default (path, props = {}) => {
       }
       break;
 
+    case ROUTE.ALBUM_SCREEN:
+      if (isServer) {
+        routeFactory.module = "AlbumScreen";
+
+        return routeFactory;
+      } else {
+        return require.ensure([], function() {
+          Route = require("./AlbumScreen");
+
+          React.render(<Route {...props} />, viewport);
+        }, "album");
+      }
+      break;
+
+    case ROUTE.ASSETS_SCREEN:
+      if (isServer) {
+        routeFactory.module = "AssetsScreen";
+
+        return routeFactory;
+      } else {
+        return require.ensure([], function() {
+          Route = require("./AssetsScreen");
+
+          React.render(<Route {...props} />, viewport);
+        }, "assets");
+      }
+      break;
+
     default:
       if (isServer) {
         routeFactory.module = "NotFoundScreen";

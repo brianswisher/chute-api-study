@@ -1,10 +1,12 @@
 import request from "superagent";
+import {CONSTANTS} from "../config/index";
+let {ROUTE} = CONSTANTS;
 
-var ChutesFetcher = {
+var ChuteFetcher = {
   fetch: function () {
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve) {      
       request
-        .get("/api/chutes")
+        .get(ROUTE.CHUTE)
         .end(function(error, response) {
           resolve(response.body.data.end_points.albums);
         });
@@ -12,4 +14,4 @@ var ChutesFetcher = {
   }
 };
 
-module.exports = ChutesFetcher;
+module.exports = ChuteFetcher;

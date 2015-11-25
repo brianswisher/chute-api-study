@@ -66,6 +66,9 @@ router.get("*", csrfProtection, (req, res) => {
 
   res.send(require("./html")({
     assets: require("./assets.json"),
+    data: {
+      keys: db.keys.find()
+    },
     i18n: props.i18n,
     locale: req.i18n.getLocale(),
     markup: render(new Route(props))

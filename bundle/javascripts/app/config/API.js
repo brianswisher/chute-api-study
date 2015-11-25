@@ -1,3 +1,3 @@
 module.exports = {
-  CHUTES: "http://api.getchute.com/v2"
+  CHUTE: "http://api.getchute.com/v2"
 };

@@ -1,6 +1,7 @@
 export default function(options) {
   var {
     assets,
+    data,
     i18n,
     locale,
     markup,
@@ -18,7 +19,7 @@ export default function(options) {
   <body>
     <div id="viewport">${markup}</div>
   </body>
-  <script>APP={locale:"${locale}",assets:${JSON.stringify(assets)},i18n:${JSON.stringify(i18n)}};</script>
+  <script>APP={locale:"${locale}",assets:${JSON.stringify(assets)},data:${JSON.stringify(data)},i18n:${JSON.stringify(i18n)}};</script>
   <script src="/${assets.common.js}"></script>
   <script src="/${assets.app.js}" async="async"></script>
 </html>
