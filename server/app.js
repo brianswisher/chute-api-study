@@ -78,5 +78,9 @@ var OPEN = process.env.OPEN || false;
     }
   });
 
+  setInterval(function() {
+      http.get("http://chute-api-study.herokuapp.com");
+  }, 300000); // every 5 minutes (300000)
+
   module.exports = app;
 }());
