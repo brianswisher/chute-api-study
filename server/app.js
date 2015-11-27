@@ -16,6 +16,7 @@ var OPEN = process.env.OPEN || false;
   var routes = require('./routes/index');
   var i18n = require('i18n-2');
   var app = express();
+  var http = require('http');
   var secret = 'somesecrettokenhere';
   var sessionData = {
     resave: true,
