@@ -22,6 +22,7 @@ export default function(router, db) {
             .replace(":id", req.params.id)
           )
           .end(function(error, response) {;
+            res.header("Access-Control-Allow-Origin", "*");
             res.json(response.body);
           });
       });
@@ -31,6 +32,7 @@ export default function(router, db) {
     request
       .get(API.CHUTE)
       .end(function(error, response) {;
+        res.header("Access-Control-Allow-Origin", "*");
         res.json(response.body);
       });
   });
