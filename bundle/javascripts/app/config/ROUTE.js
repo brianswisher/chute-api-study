@@ -1,12 +1,14 @@
 module.exports = {
-  ASSETS: "/api/album/assets",
-  ASSETS_ID: "/api/album/:id/assets",
-  ASSETS_SCREEN: "/album/assets",
+  ASSETS: "/api/assets",
+  ASSETS_ID: "/api/assets/:id",
+  ASSETS_SCREEN: "/assets",
   ALBUM: "/api/album",
   ALBUM_ID: "/api/album/:id",
   ALBUM_SCREEN: "/album",
   CHUTE: "/api/chute",
+  // CHUTE_SCREEN: "/chute",
   KEY: "/api/key",
+  // KEY_SCREEN: "/key",
   KEYS: "/api/keys",
   ROOT: "/"
 };

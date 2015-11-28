@@ -1,8 +1,5 @@
 import Enumerable from "linq";
 import request from "superagent";
-import {CONSTANTS} from "../config/index";
-
-let {ROUTE} = CONSTANTS;
 
 var KeyFetcher = {
   fetch: function (name = "chute", keys) {

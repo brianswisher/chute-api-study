@@ -3,17 +3,17 @@ import {CONSTANTS} from "../config/index";
 
 let {ROUTE} = CONSTANTS;
 
-var AlbumFetcher = {
+var AssetsFetcher = {
   fetch: function (endpoint) {
     return new Promise(function (resolve) {
       request
-        .get(endpoint || ROUTE.ALBUM)
+        .get(endpoint || ROUTE.ASSETS)
         .end(function(error, response) {
           if (response) {
-            let payload = response.body;
+            let payload = JSON.parse(response.text);
 
             if (endpoint) {
-              resolve([payload.data.links]);
+              resolve(payload.data);
             } else {
               resolve(payload);
             }
@@ -23,4 +23,4 @@ var AlbumFetcher = {
   }
 };
 
-module.exports = AlbumFetcher;
+module.exports = AssetsFetcher;

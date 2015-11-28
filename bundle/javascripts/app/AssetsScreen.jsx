@@ -1,4 +1,4 @@
-// import Assets from "./component/Assets";
+import Assets from "./component/Assets";
 import AlbumStore from "./store/AlbumStore";
 import React from "react";
 
@@ -11,7 +11,7 @@ class AlbumScreen extends React.Component {
     if (!albums.length) {
       content = <div>{i18n.loading}</div>;
     } else {
-      content = <div>{albums.length}</div>;
+      content = <Assets {...this.props}/>;
     }
 
     return content;

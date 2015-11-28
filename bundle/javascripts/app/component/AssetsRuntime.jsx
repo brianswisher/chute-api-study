@@ -2,7 +2,7 @@ import AlbumStore from "../store/AlbumStore";
 import AlbumAction from "../action/AlbumAction";
 import React from "react";
 
-class AlbumRuntime extends React.Component {
+class AssetsRuntime extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,4 +26,4 @@ function onChange(state) {
   this.setState(state);
 }
 
-export default AlbumRuntime;
+export default AssetsRuntime;

@@ -1,9 +1,6 @@
 import AlbumRuntime from "./AlbumRuntime";
-import Enumerable from "linq";
 import React from "react";
 
-const ALBUM_DETAILS = "Album Details";
-const CHUTE = "chute";
 let {ROUTE} = require("../config/index").CONSTANTS;
 
 class Album extends AlbumRuntime {
@@ -16,9 +13,9 @@ class Album extends AlbumRuntime {
     }
 
     if (!this.state.albums.length) {
-      content = <div>{i18n.loading}</div>;
+      content = <div>++ {i18n.loading} {i18n.album}</div>;
     } else {
-      APP.navigate(ROUTE.ASSETS_SCREEN, true);      
+      APP.navigate(ROUTE.ASSETS_SCREEN, true);
     }
 
     return content;

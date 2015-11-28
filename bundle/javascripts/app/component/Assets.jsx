@@ -1,9 +1,9 @@
+import AssetsRuntime from "./AssetsRuntime";
 import React from "react";
-import ChuteRuntime from "./ChuteRuntime";
 
 let {ROUTE} = require("../config/index").CONSTANTS;
 
-class Chute extends ChuteRuntime {
+class Assets extends AssetsRuntime {
   render() {
     const { i18n } = this.props;
     let content = null;
@@ -12,14 +12,15 @@ class Chute extends ChuteRuntime {
       content = <div>{i18n.something_is_wrong}</div>;
     }
 
-    if (!this.state.chutes.length) {
-      content = <div>+ {i18n.loading} {i18n.api}</div>;
+    if (!this.state.albums.length) {
+      content = <div>+++ {i18n.loading} {i18n.assets}</div>;
     } else {
-      APP.navigate(ROUTE.ALBUM_SCREEN, true);
+      content = <div>Asset</div>;
     }
 
     return content;
+
   }
 }
 
-export default Chute;
+export default Assets;

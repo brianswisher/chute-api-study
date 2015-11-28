@@ -1,5 +1,6 @@
 import request from "superagent";
 import {CONSTANTS} from "../config/index";
+
 let {ROUTE} = CONSTANTS;
 
 var ChuteFetcher = {
@@ -8,10 +9,14 @@ var ChuteFetcher = {
       request
         .get(endpoint || ROUTE.CHUTE)
         .end(function(error, response) {
-          if (endpoint) {
-            resolve(response.body.data.end_points.albums);
-          } else {
-            resolve(response.body);
+          if (response) {
+            let payload = response.body;
+
+            if (endpoint) {
+              resolve(payload.data.end_points.albums);
+            } else {
+              resolve(payload);
+            }
           }
         });
     });
