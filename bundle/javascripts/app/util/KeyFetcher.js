@@ -5,7 +5,7 @@ import {CONSTANTS} from "../config/index";
 let {ROUTE} = CONSTANTS;
 
 var KeyFetcher = {
-  fetch: function (name, keys) {
+  fetch: function (name = "chute", keys) {
     if (typeof window === "undefined" && !keys) {
       return false;
     } else {
