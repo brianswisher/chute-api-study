@@ -5,12 +5,12 @@ import {CONSTANTS} from "../config/index";
 let {ROUTE} = CONSTANTS;
 
 var KeyFetcher = {
-  fetch: function (name) {
-    if (typeof window === "undefined") {
+  fetch: function (name, keys) {
+    if (typeof window === "undefined" && !keys) {
       return false;
     } else {
       return (Enumerable
-        .from(APP.data.keys)
+        .from(keys || window.APP.data.keys)
         .where(function(item){ return item.name == name; })
         .select("$.value")
         .toArray()

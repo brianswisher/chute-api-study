@@ -1,7 +1,6 @@
 import React from "react";
 import ChuteEndpoints from "./ChuteEndpoints";
 import ChuteRuntime from "./ChuteRuntime";
-import KeyFetcher from "../util/KeyFetcher.js";
 
 let {ROUTE} = require("../config/index").CONSTANTS;
 

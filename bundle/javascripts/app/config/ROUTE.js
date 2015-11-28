@@ -4,6 +4,7 @@ module.exports = {
   ALBUM: "/api/album/:id",
   ALBUM_SCREEN: "/album",
   CHUTE: "/api/chute",
+  KEY: "/api/key",
   KEYS: "/api/keys",
   ROOT: "/"
 };
