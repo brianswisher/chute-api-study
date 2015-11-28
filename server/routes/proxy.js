@@ -20,8 +20,7 @@ function albumDetailsEndPoint(chutes) {
     .pop();
 }
 
-function fetchAlbums(req, res, key) {
-  res.header("Access-Control-Allow-Origin", "*");
+function grabAlbums(key, cb) {
   ChuteFetcher.fetch(API.CHUTE)
     .then((chutes) => {
       AlbumFetcher.fetch(
@@ -29,10 +28,7 @@ function fetchAlbums(req, res, key) {
           .replace(":id", key)
       )
         .then((albums) => {
-          AssetsFetcher.fetch(albums.pop().assets.href)
-            .then((assets) => {
-              res.json(assets);
-            });
+          cb(albums);
         });
     });
 }
@@ -40,27 +36,26 @@ function fetchAlbums(req, res, key) {
 export default function(router, db) {
   router.get(ROUTE.ASSETS, function(req, res) {
     res.header("Access-Control-Allow-Origin", "*");
-    ChuteFetcher.fetch(API.CHUTE)
-      .then((chutes) => {
-        AlbumFetcher.fetch(
-          albumDetailsEndPoint(chutes)
-            .replace(":id", KeyFetcher.fetch("chute", db.keys.find()))
-        )
-          .then((albums) => {
-            AssetsFetcher.fetch(albums.pop().assets.href)
-              .then((assets) => {
-                res.json(assets);
-              });
-          });
-      });
+    grabAlbums(KeyFetcher.fetch("chute", db.keys.find()), (albums) => {
+      AssetsFetcher.fetch(albums.pop().assets.href)
+        .then((assets) => {
+          res.json(assets);
+        });
+    });    
   });
 
   router.get(ROUTE.ALBUM, function(req, res) {
-    fetchAlbums(req, res, KeyFetcher.fetch("chute", db.keys.find()));
+    res.header("Access-Control-Allow-Origin", "*");
+    grabAlbums(KeyFetcher.fetch("chute", db.keys.find()), (albums) => {
+      res.json(albums);
+    });
   });
 
   router.get(ROUTE.ALBUM_ID, function(req, res) {
-    fetchAlbums(req, res, req.params.id);
+    res.header("Access-Control-Allow-Origin", "*");
+    grabAlbums(req.params.id, (albums) => {
+      res.json(albums);
+    });
   });
 
   router.get(ROUTE.CHUTE, function(req, res) {
