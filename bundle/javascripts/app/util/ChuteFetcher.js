@@ -3,12 +3,16 @@ import {CONSTANTS} from "../config/index";
 let {ROUTE} = CONSTANTS;
 
 var ChuteFetcher = {
-  fetch: function () {
-    return new Promise(function (resolve) {      
+  fetch: function (endpoint) {
+    return new Promise(function (resolve) {
       request
-        .get(ROUTE.CHUTE)
+        .get(endpoint || ROUTE.CHUTE)
         .end(function(error, response) {
-          resolve(response.body.data.end_points.albums);
+          if (endpoint) {
+            resolve(response.body.data.end_points.albums);
+          } else {
+            resolve(response.body);
+          }
         });
     });
   }

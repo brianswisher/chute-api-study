@@ -6,12 +6,16 @@ import {CONSTANTS} from "../config/index";
 let {CHUTE, ROUTE} = CONSTANTS;
 
 var AlbumFetcher = {
-  fetch: function (key) {
+  fetch: function (endpoint) {
     return new Promise(function (resolve) {
       request
-        .get(ROUTE.ALBUM.replace(":id", KeyFetcher.fetch()))
+        .get(endpoint || ROUTE.ALBUM)
         .end(function(error, response) {
-          resolve([response.body.data.links]);
+          if (endpoint) {
+            resolve([response.body.data.links]);
+          } else {
+            resolve(response.body);
+          }
         });
     });
   }
