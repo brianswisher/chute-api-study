@@ -41,7 +41,17 @@ export default function(router, db) {
         .then((assets) => {
           res.json(assets);
         });
-    });    
+    });
+  });
+
+  router.get(ROUTE.ASSETS_ID, function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    grabAlbums(req.params.id, (albums) => {
+      AssetsFetcher.fetch(albums.pop().assets.href)
+        .then((assets) => {
+          res.json(assets);
+        });
+    });
   });
 
   router.get(ROUTE.ALBUM, function(req, res) {
