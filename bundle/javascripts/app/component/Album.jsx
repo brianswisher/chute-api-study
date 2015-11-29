@@ -19,7 +19,6 @@ class Album extends AlbumRuntime {
     }
 
     return content;
-
   }
 }
 

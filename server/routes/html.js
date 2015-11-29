@@ -16,7 +16,7 @@ export default function(options) {
     <meta content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=1.0" name="viewport" />
     <title>${i18n.page_title}</title>
   </head>
-  <body>
+  <body style="margin:0; font-size: 0;>
     <div id="viewport">${markup}</div>
   </body>
   <script>APP={locale:"${locale}",assets:${JSON.stringify(assets)},data:${JSON.stringify(data)},i18n:${JSON.stringify(i18n)}};</script>

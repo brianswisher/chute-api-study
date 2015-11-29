@@ -1,9 +1,16 @@
-import Chute from "./component/Chute";
 import React from "react";
+
+let {ROUTE} = require("./config/index").CONSTANTS;
 
 class HomeScreen extends React.Component {
   render() {
-    return <Chute {...this.props}/>
+    let content = null;
+
+    if (typeof window === "object") {
+      APP.navigate(ROUTE.ASSETS_SCREEN, true);
+    }
+
+    return content;
   }
 }
 

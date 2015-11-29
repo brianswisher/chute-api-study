@@ -1,8 +1,10 @@
 import AssetsRuntime from "./AssetsRuntime";
+import Radium from "radium";
 import React from "react";
 
 let {ROUTE} = require("../config/index").CONSTANTS;
 
+@Radium
 class Assets extends AssetsRuntime {
   render() {
     const { i18n } = this.props;
@@ -12,10 +14,22 @@ class Assets extends AssetsRuntime {
       content = <div>{i18n.something_is_wrong}</div>;
     }
 
-    if (!this.state.albums.length) {
-      content = <div>+++ {i18n.loading} {i18n.assets}</div>;
+    if (!this.state.assets.length) {
+      content = <div>{i18n.loading}...</div>;
     } else {
-      content = <div>Asset</div>;
+      content = (
+        <div style={this.state.style.root}>
+          <div style={this.state.style.banner}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+          <div style={this.state.style.frame}/>
+        </div>
+      );
     }
 
     return content;
