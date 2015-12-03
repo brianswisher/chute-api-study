@@ -1,5 +1,4 @@
 import Enumerable from "linq";
-import request from "superagent";
 
 var KeyFetcher = {
   fetch: function (name = "chute", keys) {
@@ -8,7 +7,7 @@ var KeyFetcher = {
     } else {
       return (Enumerable
         .from(keys || window.APP.data.keys)
-        .where(function(item){ return item.name == name; })
+        .where(function(item){ return item.name === name; })
         .select("$.value")
         .toArray()
         .pop()
