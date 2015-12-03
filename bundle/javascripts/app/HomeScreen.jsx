@@ -4,7 +4,7 @@ let {ROUTE} = require("./config/index").CONSTANTS;
 
 class HomeScreen extends React.Component {
   render() {
-    let content = null;
+    let content = <div>redirecting...</div>;
 
     if (typeof window === "object") {
       APP.navigate(ROUTE.ASSETS_SCREEN, true);
